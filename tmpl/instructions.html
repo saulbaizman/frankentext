@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>$PROGRAM_NAME$ | Instructions</title>
+
+<link rel="stylesheet" type="text/css" href="tmpl/styles.css" />
+
+<link rel="stylesheet" type="text/css" href="tmpl/jquery.fancybox.css" />
+
+<script type="text/javascript" src="tmpl/jquery.js"></script>
+
+<script type="text/javascript" src="tmpl/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="tmpl/scripts.js"></script>
+
+</head>
+
+<body>
+
+<div id="main_instructions">
+
+<div id="header_instructions">
+
+<h1>frankentext</h1>
+
+</div>
+
+<div id="instructions">
+
+<h2>Today's Top Scores</h2>
+
+<table class="topscores">
+
+<tr>
+
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+	<td><em>initials</em></td>
+
+	<td><em>score</em></td>
+
+</tr>
+
+<tr>
+
+	<td>1</td>
+
+	<td class="top_scorer">$PLAYER_1$</td>
+
+	<td class="top_scorer">$PLAYER_1_SCORE$</td>
+
+</tr>
+
+<tr>
+
+	<td>2</td>
+
+	<td class="top_scorer">$PLAYER_2$</td>
+
+	<td class="top_scorer">$PLAYER_2_SCORE$</td>
+
+</tr>
+
+<tr>
+
+	<td>3</td>
+
+	<td class="top_scorer">$PLAYER_3$</td>
+
+	<td class="top_scorer">$PLAYER_3_SCORE$</td>
+
+</tr>
+
+</table>
+
+<p>&nbsp; </p>
+
+<hr />
+
+<h2>Instructions</h2>
+
+<h3>Introduction</h3>
+
+<p>The system will display the name of what could be a racehorse, adult film, rock band, or computer-generated text. Tap your selection.</p>
+
+<h3>Rules</h3>
+
+<p>Don't use your smartphone. Seriously, don't. It's not about being right.</p>
+
+<div id="age_warning">
+
+<h3>Warning</h3>
+
+<p>This program contains content of a sexually explicit nature and may not be suitable for persons under the age of 13.</p>
+
+</div>
+
+<p>&nbsp;</p>
+
+<!-- <h1><a href="game.py?level=0&question=0" title="begin">begin</a></h1> -->
+
+<form action="game.py?level=0&question=0" method="post">
+
+<input type="submit" name="go" id="begin" value="Begin &raquo;" />
+
+</form>
+
+</div>
+
+</div>
+
+<div id="credits"><a href="javascript:credits();">credits</a></div>
+
+<div style="display:none">
+
+<div id="creditsInfo">
+
+<p>Concept and programming by Saul Baizman, MFA &rsquo;14.</p>
+
+<p>Artwork by Fish McGill, MFA &rsquo;14.</p>
+
+<p><a href="javascript:closeCredits();">&laquo; return to the game</a></p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

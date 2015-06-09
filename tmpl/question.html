@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>$PROGRAM_NAME$</title>
+
+<link rel="stylesheet" type="text/css" href="tmpl/styles.css" />
+
+<link rel="stylesheet" type="text/css" href="tmpl/jquery.fancybox.css" />
+
+<script type="text/javascript" src="tmpl/jquery.js"></script>
+
+<script type="text/javascript" src="tmpl/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="tmpl/spin.js"></script>
+
+<!-- this is a crappy way to pass a variable to my scripts.js file -->
+
+<script type="text/javascript">
+  var level = $LEVEL$ ;
+</script>
+
+<script type="text/javascript">
+  var question = $QUESTION$ ;
+</script>
+
+<script type="text/javascript">
+  var lives = $LIVES$ ;
+</script>
+
+<script type="text/javascript" src="tmpl/scripts.js"></script>
+
+</head>
+
+<body onload="startTimer()">
+
+<div id="header">
+
+<!--
+<div id="lives">Lives: $LIVES$</div>
+-->
+<div id="lives">$LIVES_HTML$</div>
+
+<div id="level">Level $LEVEL$, Question $QUESTION$</div>
+
+<div id="score">Score: <span id="user_score">$SCORE$</span></div>
+
+</div>
+
+<div id="timer">(timer)</div>
+<!-- 
+pure css timer:
+http://codepen.io/HugoGiraudel/pen/BHEwo 
+-->
+
+<div id="main">
+
+
+<div style="display:none"><div id="youAreOutOfTime"><h1>Time&rsquo;s up!</h1><p><a href="javascript:goToPage('game.py?level=$NEXT_LEVEL$&question=$NEXT_QUESTION$&remove_life=1','youAreOutOfTime');"  class="link_override">Advance to the next $PHASE$ &raquo;</a></p>$EXTRA$</div></div>
+
+<div style="display:none"><div id="youAreCorrect"><h1>Correct!</h1><h2>&ldquo;$UNKNOWN_NAME$" is $ARTICLE$$CORRECT_ANSWER$.</h2><p><a href="javascript:goToPage('game.py?level=$NEXT_LEVEL$&question=$NEXT_QUESTION$&increment_score=$SCORE_INCREMENT$','youAreCorrect');" class="link_override">Advance to the next $PHASE$ &raquo;</a></p>$EXTRA$</div></div>
+
+<div style="display:none"><div id="youAreWrong"><h1>Wrong!</h1><h2>&ldquo;$UNKNOWN_NAME$&rdquo; is $ARTICLE$$CORRECT_ANSWER$.</h2><p><a href="javascript:goToPage('game.py?level=$NEXT_LEVEL$&question=$NEXT_QUESTION$&remove_life=1','youAreWrong');">Advance to the next $PHASE$ &raquo;</a></p>$EXTRA$</div></div>
+
+<div style="display:none"><div id="gameOver"><h1>Game Over</h1><h2>&ldquo;$UNKNOWN_NAME$&rdquo; is $ARTICLE$$CORRECT_ANSWER$.</h2><p  class="final_score">Your final score is <span class="big_score"><script type="text/javascript">
+document.write ( $("#user_score").text() ) ;
+</script></span>.</p><p><a href="game.py">Would you like to play again?</a></p></div></div>
+
+<div style="display:none"><div id="gameOverOutOfTime"><h1>Oh No!</h1><h2>&ldquo;$UNKNOWN_NAME$&rdquo; is $ARTICLE$$CORRECT_ANSWER$.</h2><p>You're out of time <em>and</em> your game is over.</p><p class="final_score">Your final score is <span class="big_score"><script type="text/javascript">
+document.write ( $("#user_score").text() ) ;
+</script></span>.</p><p><a href="game.py">Would you like to play again?</a></p></div></div>
+
+<div style="display:none"><div id="gameCompleted"><h1>Congrats!</h1><h2>You have finished the game.</h2><p class="final_score">Your final score is <span class="big_score"><script type="text/javascript">
+document.write ( $("#user_score").text() ) ;
+</script></span>.</p><p><a href="game.py">Would you like to play again?</a></p></div></div>
+
+
+<div id="wrapper" style="text-align: center">    
+    <div id="unknown_name" style="display: inline-block;">$UNKNOWN_NAME$</div>
+</div>
+<!-- <p><small>($QUESTION_TYPE$)</small></p> -->
+<p>&nbsp;</p>
+<div id="options">
+<p class="is">Is this a...</p>
+<form action="" name="questionForm" id="questionForm" method="post">
+<p class="answer"><input type="radio" id="raceHorse" name="user_answer" value="raceHorse" onclick="unlockGo();playSound('racehorse');" /> <label for="raceHorse"><span></span>Racehorse</label></p>
+<p class="answer"><input type="radio" id="rockBand" name="user_answer" value="rockBand" onclick="unlockGo();playSound('rockband');" /> <label for="rockBand"><span></span>Rock Band</label></p>
+<p class="answer"><input type="radio" id="xxxFilm" name="user_answer" value="porno" onclick="unlockGo();playSound('adultfilm');" /> <label for="xxxFilm"><span></span>Adult Film</label></p>
+<p class="answer"><input type="radio" id="frankenText" name="user_answer" value="frankenText" onclick="unlockGo();playSound('frankentext');" /> <label for="frankenText"><span></span>Frankentext</label></p>
+<input type="hidden" name="correct_answer" value="$CORRECT_ANSWER$" />
+<input type="button" name="go" id="go" value="Submit" disabled onclick="checkAnswer()" />
+</form>
+</div>
+<p>&nbsp;</p>
+</div>
+<div id="start_over"><a href="game.py">start over</a></div>
+</body>
+</html>

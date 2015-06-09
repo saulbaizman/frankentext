@@ -1,0 +1,26 @@
++ Add fake domain 'frankentext' in /etc/hosts
+
++ Add Apache virtual host to /etc/apache2/extra/httpd-vhosts.conf:
+
+<VirtualHost *:80>
+    DocumentRoot "/Users/${USER}/Dropbox/DMI MFA/07 spring 2014/02 thesis project 2/031 frankentext"
+    ServerName frankentext
+    ErrorLog "/private/var/log/apache2/frankentext-error_log"
+    CustomLog "/private/var/log/apache2/frankentext-access_log" common
+    AddHandler cgi-script .py
+    <Directory "/Users/${USER}/Dropbox/DMI MFA/07 spring 2014/02 thesis project 2/031 frankentext">
+	Options ExecCGI
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+
++ Add Apache index directive to /etc/apache2/httpd.conf:
+<IfModule dir_module>
+    DirectoryIndex index.html index.php index.py
+</IfModule>
+
++ Change permissions to Dropbox folder:
+  $ chmod 755 /Users/${USER}/Dropbox
+
+
